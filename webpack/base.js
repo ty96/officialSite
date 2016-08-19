@@ -49,7 +49,7 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('isomorphic-style-loader', 'css-loader!postcss-loader'),
-        include: modulesPath,
+        include: [modulesPath],
         exclude: srcPath,
       },
     ],

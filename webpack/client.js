@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === 'development') {
   config.module.loaders.push({
     test: /\.(js|jsx)$/,
     loader: 'react-hot!babel',
-    include: srcPath,
+    include: [srcPath]
   });
 } else {
   config.plugins.push(...[

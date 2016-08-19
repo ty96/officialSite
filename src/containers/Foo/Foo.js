@@ -7,7 +7,7 @@ import * as FooActions from 'containers/Foo/actions';
 import Name from 'components/Name';
 import Header from './components/Header';
 import Message from './components/Message';
-
+import { ScrollPage, Section } from 'react-scrollpage';
 
 function mapStateToProps(state) {
   const { foo } = state;
@@ -41,11 +41,20 @@ class Foo extends Component {
     const { name, message } = this.props.foo.toJS();
     return (
       <div className={style.content}>
-        <Header />
-        <div className={style.main} >
-          <Name name={name} fooActions={this.props.fooActions} />
-          <Message message={message} />
-        </div>
+        <ScrollPage
+          curPage={1}
+          totalPage={2}
+        >
+          <Section>
+            <Header />
+          </Section>
+          <Section>
+            <div className={style.main} >
+              <Name name={name} fooActions={this.props.fooActions} />
+              <Message message={message} />
+            </div>
+          </Section>
+        </ScrollPage>
       </div>
     );
   }
